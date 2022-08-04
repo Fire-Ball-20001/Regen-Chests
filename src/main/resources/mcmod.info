@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "regen_chests",
+    "name": "Regen Chests",
+    "description": "",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "Fire_Ball_20001"
+    ],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
