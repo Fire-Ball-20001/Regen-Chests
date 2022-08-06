@@ -12,9 +12,7 @@ public class RegenChestSerializer implements JsonSerializer<RegenChest> {
     @Override
     public JsonElement serialize(RegenChest src, Type typeOfSrc, JsonSerializationContext context) {
         JsonObject obj = new JsonObject();
-        obj.addProperty("isExample",src.isExample);
-        obj.addProperty("countItems",src.countItems);
-        obj.add("items",context.serialize(src.items));
+        obj.add("nbt`s",context.serialize(src.nbts));
         return obj;
     }
 }

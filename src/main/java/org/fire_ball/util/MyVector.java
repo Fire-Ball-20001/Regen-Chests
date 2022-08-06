@@ -12,11 +12,13 @@ public class MyVector {
     private int x;
     private int y;
     private int z;
+    private String world;
 
-    public MyVector(BlockPos pos) {
+    public MyVector(BlockPos pos, String world) {
         x = pos.getX();
         y = pos.getY();
         z = pos.getZ();
+        this.world = world;
     }
 
     public BlockPos getBlocPos() {

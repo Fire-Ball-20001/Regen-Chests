@@ -13,21 +13,18 @@ import org.fire_ball.commands.CommandExecutor;
 import org.fire_ball.config.MainConfig;
 import org.fire_ball.config.RegenChestsConfig;
 import org.fire_ball.config.RegenChestsDataBase;
-import org.fire_ball.util.MyVector;
-import org.fire_ball.util.RegenChest;
-
-import java.util.HashMap;
 
 @Mod(
         modid = Regen_chests.MOD_ID,
         name = Regen_chests.MOD_NAME,
-        version = Regen_chests.VERSION
+        version = Regen_chests.VERSION,
+        acceptableRemoteVersions = "*"
 )
 public class Regen_chests {
 
     public static final String MOD_ID = "regen_chests";
     public static final String MOD_NAME = "Regen Chests";
-    public static final String VERSION = "0.0.1";
+    public static final String VERSION = "0.9.3";
 
     public static final String MAIN_FOLDER="config/"+MOD_ID+"/";
     public static Logger LOG;
@@ -51,9 +48,6 @@ public class Regen_chests {
         config.load();
         regenChestsDataBase.load();
         regenChestsConfig.load();
-        HashMap<Integer, String> items = new HashMap<>();
-        items.put(0,"{id:\"minecraft:diamond\",Count:1b,Damage:0s}");
-        regenChestsConfig.addChest(new MyVector(-1388,4,-280),new RegenChest(true,5,items));
     }
 
 
@@ -68,7 +62,6 @@ public class Regen_chests {
 
     @Mod.EventHandler
     public void stopServer(FMLServerStoppingEvent event) {
-        config.save();
         regenChestsDataBase.save();
         regenChestsConfig.save();
     }

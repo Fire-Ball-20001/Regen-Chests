@@ -2,8 +2,10 @@ package org.fire_ball.config;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import org.fire_ball.Regen_chests;
+import org.fire_ball.gson.MyVectorDeserializer;
 import org.fire_ball.gson.RegenChestDeserializer;
 import org.fire_ball.gson.RegenChestSerializer;
+import org.fire_ball.util.MyVector;
 import org.fire_ball.util.RegenChest;
 
 import java.io.FileReader;
@@ -68,6 +70,7 @@ public abstract class BaseConfig {
         return new GsonBuilder().setPrettyPrinting()
                 .registerTypeAdapter(RegenChest.class, new RegenChestSerializer())
                 .registerTypeAdapter(RegenChest.class, new RegenChestDeserializer())
+                .registerTypeAdapter(MyVector.class, new MyVectorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();
     }
