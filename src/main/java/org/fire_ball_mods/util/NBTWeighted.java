@@ -1,4 +1,4 @@
-package org.fire_ball.util;
+package org.fire_ball_mods.util;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import net.minecraft.util.WeightedRandom;
 @EqualsAndHashCode
 public class NBTWeighted extends WeightedRandom.Item {
 
-    private String nbt;
+    private final String nbt;
 
     public NBTWeighted(int itemWeightIn, String nbt) {
         super(itemWeightIn);

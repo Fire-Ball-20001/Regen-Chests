@@ -1,4 +1,4 @@
-package org.fire_ball.util;
+package org.fire_ball_mods.util;
 
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;

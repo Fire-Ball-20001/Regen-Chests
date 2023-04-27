@@ -1,12 +1,12 @@
-package org.fire_ball.config;
+package org.fire_ball_mods.config;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import org.fire_ball.Regen_chests;
-import org.fire_ball.gson.MyVectorDeserializer;
-import org.fire_ball.gson.RegenChestDeserializer;
-import org.fire_ball.gson.RegenChestSerializer;
-import org.fire_ball.util.MyVector;
-import org.fire_ball.util.RegenChest;
+import org.fire_ball_mods.Regen_chests;
+import org.fire_ball_mods.gson.MyVectorDeserializer;
+import org.fire_ball_mods.gson.RegenChestDeserializer;
+import org.fire_ball_mods.gson.RegenChestSerializer;
+import org.fire_ball_mods.util.MyVector;
+import org.fire_ball_mods.model.OldRegenChest;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -68,8 +68,8 @@ public abstract class BaseConfig {
 
     private Gson getGson() {
         return new GsonBuilder().setPrettyPrinting()
-                .registerTypeAdapter(RegenChest.class, new RegenChestSerializer())
-                .registerTypeAdapter(RegenChest.class, new RegenChestDeserializer())
+                .registerTypeAdapter(OldRegenChest.class, new RegenChestSerializer())
+                .registerTypeAdapter(OldRegenChest.class, new RegenChestDeserializer())
                 .registerTypeAdapter(MyVector.class, new MyVectorDeserializer())
                 .enableComplexMapKeySerialization()
                 .create();

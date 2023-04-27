@@ -14,8 +14,10 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: "io.freefair.lombok"
 
-group = 'fire_ball'
-version = '0.9.3'
+
+
+group = 'fire_ball_mods'
+version = '1.0.0'
 
 java {
     archivesBaseName = 'regen_chests'

@@ -1,26 +1,23 @@
-package org.fire_ball.config;
+package org.fire_ball_mods.config;
 
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import org.fire_ball.Regen_chests;
-import org.fire_ball.util.MyVector;
+import org.fire_ball_mods.Regen_chests;
+import org.fire_ball_mods.util.MyVector;
 
 import java.time.Duration;
 import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.HashMap;
 
-public class RegenChestsDataBase extends BaseConfig {
+public class OldRegenChestsDataBase extends BaseConfig {
 
     private HashMap<MyVector, String> chestsOpened = new HashMap<>();
 
-    public RegenChestsDataBase(String path, String name) {
+    public OldRegenChestsDataBase(String path, String name) {
         super(path+name);
     }
 
     public boolean isRegen(MyVector chest, Instant time, long period) {
-        if(!chestsOpened.containsKey(chest)) return Regen_chests.INSTANCE.regenChestsConfig.isExists(chest);
+        //if(!chestsOpened.containsKey(chest)) return Regen_chests.INSTANCE.oldRegenChestsConfig.isExists(chest);
         Instant timeOpenedInstant = Instant.parse(chestsOpened.get(chest));
         if(time.isBefore(timeOpenedInstant)) return false;
         return time.getEpochSecond()-timeOpenedInstant.getEpochSecond() >= Duration.of(period, ChronoUnit.MINUTES).getSeconds();
@@ -51,29 +48,13 @@ public class RegenChestsDataBase extends BaseConfig {
         save();
     }
 
-    public void regenerateChest(TileEntity block, NBTTagCompound nbt) {
-        block.deserializeNBT(nbt);
-        block.markDirty();
-        addChest(new MyVector(block.getPos(), block.getWorld().getWorldInfo().getWorldName()));
-    }
-
-    public void regenerateChest(TileEntity block) {
-        BlockPos pos = block.getPos();
-        String worldName = block.getWorld().getWorldInfo().getWorldName();
-        NBTTagCompound nbt = Regen_chests.INSTANCE.regenChestsConfig.chests.get(new MyVector(pos, worldName)).getNbt();
-        if(nbt == null) {
-            return;
-        }
-        regenerateChest(block,nbt);
-    }
-
     public HashMap<MyVector,String> getData() {
         return chestsOpened;
     }
 
     @Override
     public void copy(BaseConfig object) {
-        this.chestsOpened = ((RegenChestsDataBase)object).chestsOpened;
+        this.chestsOpened = ((OldRegenChestsDataBase)object).chestsOpened;
     }
 
     public void printDebug(boolean isRegen, MyVector pos) {

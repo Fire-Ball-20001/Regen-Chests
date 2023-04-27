@@ -1,7 +1,7 @@
-package org.fire_ball.gson;
+package org.fire_ball_mods.gson;
 
 import com.google.gson.*;
-import org.fire_ball.util.MyVector;
+import org.fire_ball_mods.util.MyVector;
 
 import java.lang.reflect.Type;
 

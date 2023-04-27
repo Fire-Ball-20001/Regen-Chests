@@ -1,4 +1,4 @@
-package org.fire_ball.util;
+package org.fire_ball_mods.util;
 
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
