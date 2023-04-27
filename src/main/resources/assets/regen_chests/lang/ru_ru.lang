@@ -1,1 +1,1 @@
-regen_chests.commands.usage=Тест
+regen_chests.commands.usage=/regenchest <add [вес]/remove [номер набора]/list [страница]/info/regen [номер набора]>

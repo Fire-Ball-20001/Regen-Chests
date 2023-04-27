@@ -14,8 +14,10 @@ buildscript {
 apply plugin: 'net.minecraftforge.gradle'
 apply plugin: "io.freefair.lombok"
 
-group = 'fire_ball'
-version = '0.0.1'
+
+
+group = 'fire_ball_mods'
+version = '1.0.0'
 
 java {
     archivesBaseName = 'regen_chests'
@@ -65,7 +67,7 @@ minecraft {
         }
 
         server {
-            workingDirectory project.file('run')
+            workingDirectory project.file('run-server')
 
             // Recommended logging data for a userdev environment
             // The markers can be added/removed as needed separated by commas.
@@ -133,6 +135,7 @@ jar {
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
     }
+    duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
 }
 
 task prepareAssets(type: Copy) {
@@ -141,5 +144,9 @@ task prepareAssets(type: Copy) {
     into project.file('build/classes/java/main')
 }
 classes.dependsOn(prepareAssets)
+
+tasks.withType(JavaCompile){
+    options.encoding = 'UTF-8'
+}
 
 jar.finalizedBy('reobfJar')
