@@ -503,6 +503,9 @@ public class CommandExecutor extends CommandBase {
                 e.printStackTrace();
                 return;
             }
+            if(loot instanceof LinkedLoot) {
+                nbtTag = Regen_chests.INSTANCE.handler.prepareNbt(nbtTag, tileEntity);
+            }
             Regen_chests.INSTANCE.handler.regenerateChest(tileEntity,nbtTag);
             sender.sendMessage(CommandOutputs.CommandRegen.goodRegen());
         }
